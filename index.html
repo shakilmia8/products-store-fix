@@ -20,15 +20,18 @@
 <body>
   <header></header>
   <main class="main">
-    <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
-      </div>
-    </div>
+
+    <section>
+      <div class="container">
+        <form class="col-md-12 mx-auto">
+          <div class="sss search-box">
+            <input id="input-field" type="text" class="form-control" placeholder="Enter your product name">
+            <div class="input-group">
+              <button onclick="loadProducts()" type="button" id="search-btn" class="btn btn-primary">Search</button>
+            </div>
+          </div>
+        </form>
+    </section>
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
