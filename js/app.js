@@ -18,7 +18,7 @@ const showProducts = (products) => {
     <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h4>${product.title}</h4>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
       <p><i class="fas fa-star" id="gap"> ${product.rating.rate}</i> <i class="fas fa-user"> ${product.rating.count}</i> </p>
@@ -54,7 +54,7 @@ const displayDetails = data => {
   const displayDetail = document.getElementById('display-details');
   displayDetail.textContent = '';
   const div = document.createElement('div');
-  div.innerHTML = `<div class="single-product">
+  div.innerHTML = `<div class="single-product" style="background-color: seashell;">
   <div>
   <img class="product-image" src=${data.image}></img>
     </div>
