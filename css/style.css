@@ -2,7 +2,10 @@ body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
-.sss{
+.main{
+  background-color: rgba(228, 245, 133, 0.11)
+}
+.s-btn{
   display: flex;
   margin: auto;
   justify-content: center;
@@ -48,6 +51,9 @@ body {
   border-radius: 10px;
   border: 1px solid cyan;
 }
+.success{
+background-color: rgba(119, 252, 11, 0.100)
+}
 .product-image {
   width: 150px;
   height: 150px;
@@ -63,6 +69,9 @@ body {
 }
 .cart-main {
   padding-right: 30px;
+}
+#gap{
+  margin-right: 20px;
 }
 @media only screen and (max-width: 768px) {
   #all-products {

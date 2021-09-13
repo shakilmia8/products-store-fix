@@ -13,16 +13,16 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
-    <div class="bg-success">
+    <div class="success">
     <div>
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
-      <p>Rate: ${product.rating.rate} Count: ${product.rating.count}</p>
+      <p><i class="fas fa-star" id="gap">${product.rating.rate}</i> <i class="fas fa-user">${product.rating.count}</i> </p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button>
+      <button onclick="details(${product})" id="details-btn" class="btn btn-danger">Details</button>
     </div>
     </div>
       `;
@@ -37,6 +37,16 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
   updateTotal();
 };
+
+
+const details = id => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data));
+}
+
+
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
