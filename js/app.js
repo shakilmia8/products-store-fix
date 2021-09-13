@@ -22,7 +22,7 @@ const showProducts = (products) => {
       <h2>Price: $ ${product.price}</h2>
       <p><i class="fas fa-star" id="gap">${product.rating.rate}</i> <i class="fas fa-user">${product.rating.count}</i> </p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button onclick="details(${product})" id="details-btn" class="btn btn-danger">Details</button>
+      <button onclick="details(${product.id})" id="details-btn" class="btn btn-danger">Details</button>
     </div>
     </div>
       `;
@@ -38,15 +38,28 @@ const addToCart = (id, price) => {
   updateTotal();
 };
 
-
 const details = id => {
   const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => displayDetails(data));
 }
 
-
+const displayDetails = data => {
+  const displayDetail = document.getElementById('display-details');
+  displayDetail.textContent = '';
+  const div = document.createElement('div');
+  div.innerHTML = `<div class="single-product">
+  <div>
+  <img class="product-image" src=${data.image}></img>
+    </div>
+    <h3>${data.title}</h3>
+    <p>Category: ${data.category}</p>
+    <h2>Price: $ ${data.price}</h2>
+    <p><i class="fas fa-star" id="gap">${data.rating.rate}</i> <i class="fas fa-user">${data.rating.count}</i> </p>
+  </div>`;
+  displayDetail.appendChild(div);
+}
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
@@ -91,5 +104,13 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+const clearCart = () => {
+  document.getElementById('total').textContent = '0';
+  document.getElementById('total-tax').textContent = '0';
+  document.getElementById('delivery-charge').textContent = '20';
+  document.getElementById('price').textContent = '0';
+  document.getElementById('total-Products').textContent = '0';
+}
 
 loadProducts();

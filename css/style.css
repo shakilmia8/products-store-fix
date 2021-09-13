@@ -32,6 +32,12 @@ body {
   padding: 10px 50px;
   border-radius: 25px;
 }
+#display-details{
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  background-color: seashell;
+}
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
