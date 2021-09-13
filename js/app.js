@@ -21,7 +21,7 @@ const showProducts = (products) => {
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
-      <p><i class="fas fa-star" id="gap">${product.rating.rate}</i> <i class="fas fa-user">${product.rating.count}</i> </p>
+      <p><i class="fas fa-star" id="gap"> ${product.rating.rate}</i> <i class="fas fa-user"> ${product.rating.count}</i> </p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button onclick="details(${product.id})" id="details-btn" class="btn btn-danger">Details</button>
     </div>
@@ -51,7 +51,6 @@ const details = id => {
 
 // single data details show in ui when click detail button
 const displayDetails = data => {
-  console.log(data);
   const displayDetail = document.getElementById('display-details');
   displayDetail.textContent = '';
   const div = document.createElement('div');
@@ -63,7 +62,7 @@ const displayDetails = data => {
     <p>Category: ${data.category}</p>
     <h2>Price: $ ${data.price}</h2>
     <p>${data.description}</p>
-    <p><i class="fas fa-star" id="gap">${data.rating.rate}</i> <i class="fas fa-user">${data.rating.count}</i> </p>
+    <p><i class="fas fa-star" id="gap"> ${data.rating.rate}</i> <i class="fas fa-user"> ${data.rating.count}</i> </p>
   </div>`;
   displayDetail.appendChild(div);
 }
@@ -115,10 +114,11 @@ const updateTotal = () => {
 
 // clean my cart data
 const clearCart = () => {
-  document.getElementById('total').textContent = '0';
-  document.getElementById('total-tax').textContent = '0';
-  document.getElementById('delivery-charge').textContent = '20';
-  document.getElementById('price').textContent = '0';
   document.getElementById('total-Products').textContent = '0';
+  document.getElementById('price').textContent = '0';
+  document.getElementById('delivery-charge').textContent = '20';
+  document.getElementById('total-tax').textContent = '0';
+  document.getElementById('total').textContent = '0';
 }
+
 loadProducts();
